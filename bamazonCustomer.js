@@ -110,7 +110,7 @@ const getAction = _ => {
         case 'View low Inventory':
         getProducts('*')
         .then(r => {
-          r.forEach(({ item_id, product_name, price, stock_quantity }) => console.log(`
+          r.forEach(({ item_id, product_name,stock_quantity }) => console.log(`
             ----------
             ID:${item_id}, Product: ${product_name},STOCK: ${stock_quantity} 
             ----------
@@ -119,9 +119,10 @@ const getAction = _ => {
         .catch(e => console.log(e))
           break
         case 'Add to Inventory':
+        // work in progress
          addInventory()
           break
-        case 'Add New Product':
+                // work in progress
           addProduct()
           break
         case '--EXIT--':
