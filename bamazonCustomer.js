@@ -59,7 +59,7 @@ const getProduct = _ => {
     .catch(e => console.log(e))
 }
 
-const addSong = _ => {
+const addProduct = _ => {
   prompt([
     {
       type: 'input',
@@ -108,13 +108,21 @@ const getAction = _ => {
             .catch(e => console.log(e))
           break
         case 'View low Inventory':
-          getSong()
+          getInventory()
           break
         case 'Add to Inventory':
-          addSong()
+        getProducts('*')
+        .then(r => {
+          r.forEach(({ item_id, product_name, price, stock_quantity }) => console.log(`
+            ----------
+            ID:${item_id}, Product: ${product_name},STOCK: ${stock_quantity} 
+            ----------
+          `))
+        })
+        .catch(e => console.log(e))
           break
         case 'Add New Product':
-          updateSong()
+          addProduct()
           break
         case '--EXIT--':
           process.exit()
